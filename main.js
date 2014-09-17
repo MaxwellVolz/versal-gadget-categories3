@@ -17,6 +17,7 @@ player.on('editableChanged', function (editableObj) {
         learnerState = false;
         $(".dropZone,div#cardCounter").hide();
         $("div#addNew,span.killBtn,ul#catList").show();
+
         //$("textarea").attr("onclick", "this.focus();this.select()");
         $("div#wordBank").children().hide();
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "button");
@@ -27,10 +28,11 @@ player.on('editableChanged', function (editableObj) {
         learnerState = true;
         //$(".catBtn,.catBtn2,.killBtn,#insertWordBtn").hide();
         $("div#addNew,span.killBtn,ul#catList").hide();
+
         createDeck();
         makeCards();
         wordCheck();
-
+        $("div#statsBank").css("background","lightgrey");
 
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "text");
     }
@@ -59,6 +61,7 @@ player.on('attributesChanged', function (attrs) {
 });
 var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='Enter Word'></input></li>";
 
+
 $('body').on('click', 'div#addNew', function () {
     var randomNumber = Math.floor(Math.random() * 10000) + 1;
 
@@ -66,15 +69,13 @@ $('body').on('click', 'div#addNew', function () {
     $(this).parent().find("li:last-child input").focus();
     $(this).parent().parent().parent().find(".catWords table:first-child td");
     //$(this).closest(".catWords2").prepend(newCat);
-
-
 });
 
 $('body').on('click', 'span.killBtn', function () {
     $(this).parent().remove();
 });
 
-$('li#catHead').keypress(function(e){
+$('li#catHead').keypress(function (e) {
     if (e.which == 13) {
         event.preventDefault();
     }
@@ -96,7 +97,6 @@ $('body').on('focus', 'div.catBox li:last-child', function () {
     })
 
 });
-
 
 $('body').on('focus', 'div.catBox1 li:last-child', function () {
     $(this).keypress(function (e) {
@@ -164,12 +164,9 @@ $(window).bind("load", function () {
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
                 $(this).addClass("pulseGreen");
-                $(".aboutToDrop").animate({opacity: 0.0}, 200,"linear",function()
-                {
-                    $(this).remove();
-                })
+                $(".aboutToDrop").remove();
                 pulseDropZone();
-                setTimeout(function() {
+                setTimeout(function () {
                     // Do something after 5 seconds
                     wordCheck();
                 }, 300);
@@ -184,12 +181,11 @@ $(window).bind("load", function () {
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
                 $(this).addClass("pulseGreen2");
-                $(".aboutToDrop").animate({opacity: 0.0}, 200,"linear",function()
-                {
+                $(".aboutToDrop").animate({opacity: 0.0}, 200, "linear", function () {
                     $(this).remove();
                 })
                 pulseDropZone2();
-                setTimeout(function() {
+                setTimeout(function () {
                     // Do something after 5 seconds
                     wordCheck();
                 }, 300);
@@ -203,12 +199,11 @@ $(window).bind("load", function () {
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
                 $(this).addClass("pulseGreen3");
-                $(".aboutToDrop").animate({opacity: 0.0}, 200,"linear",function()
-                {
+                $(".aboutToDrop").animate({opacity: 0.0}, 200, "linear", function () {
                     $(this).remove();
                 })
                 pulseDropZone3();
-                setTimeout(function() {
+                setTimeout(function () {
                     // Do something after 5 seconds
                     wordCheck();
                 }, 300);
@@ -219,6 +214,7 @@ $(window).bind("load", function () {
 });
 var wordArray = [];
 var wordArray1 = [];
+var wordArray2 = [];
 
 function createDeck() {
     wordArray = [];
@@ -278,7 +274,13 @@ function makeCards() {
 
 
     $(".drag").draggable({
-        revert: "invalid",
+        revert: function (event, ui) {
+            $(this).appendTo("div#wordBank")
+                .animate({
+                    top: '0px',
+                    left: '0px'
+                }, 500, "linear", function () {})
+        },
         cancel: "text",
         snap: "#droppable",
         snapMode: "inner",
@@ -289,29 +291,35 @@ function makeCards() {
         },
         stop: function () {
             $("div.dropZone").css('background-color', 'white');
-
+            $(this).removeClass("aboutToDrop");
         }
     });
 
 
+    //end of make cards
+    $("div.drag:nth-child(odd)").appendTo("div#wordBank");
+    $("div.drag:nth-child(3n+1)").appendTo("div#wordBank");
+    $("div.drag:nth-child(odd)").appendTo("div#wordBank");
     //$(this).parent().attr('value');
 
 }
 function pulseDropZone() {
-    $("div.pulseGreen").animate({'background-color': '#90EE90'}, 300,"linear",function()
-    {
-        $(this).animate({'background-color': 'white'}, 300,"linear",function(){})
+    $("div.pulseGreen").animate({'background-color': '#90EE90'}, 300, "linear", function () {
+        $(this).animate({'background-color': 'white'}, 300, "linear", function () {
+        })
     })
 
-}function pulseDropZone2() {
-    $("div.pulseGreen2").animate({'background-color': '#90EE90'}, 300,"linear",function()
-    {
-        $(this).animate({'background-color': 'white'}, 300,"linear",function(){})
+}
+function pulseDropZone2() {
+    $("div.pulseGreen2").animate({'background-color': '#90EE90'}, 300, "linear", function () {
+        $(this).animate({'background-color': 'white'}, 300, "linear", function () {
+        })
     })
-}function pulseDropZone3() {
-    $("div.pulseGreen3").animate({'background-color': '#90EE90'}, 300,"linear",function()
-    {
-        $(this).animate({'background-color': 'white'}, 300,"linear",function(){})
+}
+function pulseDropZone3() {
+    $("div.pulseGreen3").animate({'background-color': '#90EE90'}, 300, "linear", function () {
+        $(this).animate({'background-color': 'white'}, 300, "linear", function () {
+        })
     })
 }
 
@@ -322,16 +330,19 @@ function wordCheck() {
     $('div.catCard').each(function () {
         ++x;
         ++wordCount;
-        if (x >= 6) {
-            //catHeader depreciated
-            //$("#catHeader>textarea").val("Great Job!");
-        }
 
     });
 
     var scoreText = "Words left: " + wordCount;
     $("div#cardCounter").html(scoreText);
 
+    if(wordCount==0){
+        $("div#statsBank").css("background","#90EE90")
+
+    }
+    else{
+        $("div#statsBank").css("background","lightgrey")
+    }
 }
 
 //find and save textareas
