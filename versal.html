@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <title>A Category-based Learning Utility</title>
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" href="bower_components/versal-gadget-api/versal-gadget-theme.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/versal-gadget-api/versal-player-api.js"></script>
+
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/versal-gadget-api/versal-challenges-api.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+</head>
+<body>
+
+
+<div id="categoriesContainer">
+
+    <div id="wordBank">
+    </div>
+    <div id="catBank">
+        <div class="catBox">
+
+
+            <li id='catHead' contenteditable='true'>Category 1</li>
+
+
+            <div class="catWords">
+                <div class="dropZone" id="droppable1">Drop Area</div>
+                <ul id="catList">
+
+                </ul>
+            </div>
+            <div id="addNew">Add New Card</div>
+
+        </div>
+        <div class="catBox1">
+
+
+            <li id='catHead' contenteditable='true'>Category 2</li>
+
+
+            <div class="catWords">
+                <div class="dropZone" id="droppable2">Drop Area</div>
+                <ul id="catList">
+
+                </ul>
+            </div>
+            <div id="addNew">Add New Card</div>
+
+        </div>
+        <div class="catBox2">
+
+
+            <li id='catHead' contenteditable='true'>Category 3</li>
+
+
+            <div class="catWords">
+                <div class="dropZone" id="droppable3">Drop Area</div>
+                <ul id="catList">
+
+                </ul>
+            </div>
+            <div id="addNew">Add New Card</div>
+
+        </div>
+        <!--
+        <div class="catBox1">
+            <table id="catHead">
+                <tr>
+                    <td contenteditable='true'>Category 2</td>
+                </tr>
+            </table>
+            <div class="catBoxScroller">
+                <div class="catWords">
+                <table>
+                    <tr><td class="lastTD"></td></tr>
+                </table>
+                </div>
+            </div>
+            <table id="addNew">
+                <tr id="addTD">
+                    <td>Add New Card</td>
+                </tr>
+            </table>
+
+        </div>
+        -->
+
+
+    </div>
+    <div id="statsBank">
+        <div id="scoreboard">
+            <div id="cardCounter"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>

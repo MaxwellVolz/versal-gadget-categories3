@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #3D9499;
+    color: #7c7975;
+    margin: 0;
+    width: 722px;
+    height: 500px;
+
+}
+
+div#categoriesContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: lightgrey;
+    overflow: hidden;
+}
+
+div#wordBank {
+    position: relative;
+    width: 3000px;
+    height: 140px;
+    margin: 0px;
+    padding: 0px;
+    background-color: lightgrey;
+    z-index: 50;
+}
+
+div#catBank {
+    position: relative;
+    width: 100%;
+    height: 322px;
+    margin: 0px;
+    padding: 0px;
+    background-color: lightcyan;
+    z-index: 25;
+}
+
+div.catBox, div.catBox1 {
+    position: relative;
+    float: left;
+    height: 300px;
+    width: 200px;
+    margin: 11px;
+    margin-left: 30.5px;
+    margin-right: 0px;
+    background-color: white;
+    overflow: hidden;
+}
+
+div.catBox2 {
+    position: relative;
+    float: left;
+    height: 300px;
+    width: 200px;
+    margin: 11px;
+    margin-left: 30.5px;
+    margin-right: 0px;
+    background-color: white;
+    overflow: hidden;
+}
+
+li {
+    list-style-type: none;
+}
+
+li#catHead {
+    background-color: lightblue;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+table#catHead, table#catHead2 {
+    background-color: lightblue;
+}
+
+div.catWords, div.catWords2 {
+    height: 240px;
+    width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    visibility: visible;
+}
+
+div.catWords td.entry {
+    width: 100%;
+    max-width: 100px;
+    white-space: nowrap;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: lightgray;
+    border-radius: .2em;
+
+}
+
+div.catBoxScroller {
+    overflow-y: auto;
+    visibility: hidden;
+}
+
+div#addNew {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    width: 100%;
+    background-color: lightgreen;
+    color: white;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+td.lastTD {
+    visibility: hidden;
+    background-color: lightgrey;
+}
+
+div.drag {
+    position: relative;
+    width: 140px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    background-color: white;
+    line-height: 90px;
+    text-align: center;
+    box-shadow: 1px 1px 4px #555;
+    border-radius: .2em;
+}
+
+textarea#dragText {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 35px;
+    height: 30px;
+    width: 136px;
+    text-align: center;
+    border: 0px;
+    resize: none;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+div#statsBank {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    background-color: lightgray;
+    z-index: 25;
+}
+
+div#scoreboard {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    right: 10px;
+}
+
+div#cardCounter {
+    text-align: right;
+    line-height: 40px;
+}
+
+li {
+    display: block;
+    position: relative;
+    height: 23px;
+    width: 200px;
+}
+
+span.killBtn {
+    position: relative;
+    float: left;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    width: 20px;
+    text-align: left;
+    color: lightcoral;
+}
+
+ul#catList {
+    position: relative;
+    left: 0px;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+input.entry {
+    position: relative;
+    text-align: center;
+    width: 160px;
+    float: left;
+}
+
+div.dropZone {
+    position: absolute;
+    margin: 10px;
+    width: 176px;
+    height: 236px;
+    border: 2px dashed;
+    border-color: lightgray;
+    text-align: center;
+    line-height: 230px;
+    color: lightgray;
+}
