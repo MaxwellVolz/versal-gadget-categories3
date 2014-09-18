@@ -15,6 +15,7 @@ player.on('editableChanged', function (editableObj) {
         //Author State
         //refreshBtn();
         learnerState = false;
+        $("input.entry").css("width","160px")
         $(".dropZone,div#cardCounter").hide();
         $("div#addNew,span.killBtn,ul#catList").show();
 
@@ -32,7 +33,7 @@ player.on('editableChanged', function (editableObj) {
         createDeck();
         makeCards();
         wordCheck();
-        $("div#statsBank").css("background","lightgrey");
+        $("div#statsBank,div#wordBank").css("background","lightgrey");
 
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "text");
     }
@@ -67,6 +68,7 @@ $('body').on('click', 'div#addNew', function () {
 
     $(this).parent().find("ul#catList").append(newCat);
     $(this).parent().find("li:last-child input").focus();
+
     $(this).parent().parent().parent().find(".catWords table:first-child td");
     //$(this).closest(".catWords2").prepend(newCat);
 });
@@ -81,22 +83,40 @@ $('li#catHead').keypress(function (e) {
     }
 })
 
+var preventDupes = false;
+
 $('body').on('focus', 'div.catBox li:last-child', function () {
-    $(this).keypress(function (e) {
+    var b = 0;
 
-        if (e.which == 13) {
-            event.preventDefault();
-            //alert($(this).parent().html());
-            $("div.catBox ul").append(newCat);
-            $("div.catBox li:last-child input").focus();
-            // $("li:last-child").select();
-            var what = focus();
-            //alert(what);
-        }
 
-    })
+
+
+        $(this).keypress(function (e) {
+
+            if (e.which == 13) {
+                event.preventDefault();
+                //alert($(this).parent().html());
+                if(!preventDupes) {
+                    $("div.catBox ul").append(newCat);
+                    $("div.catBox li:last-child input").focus();
+                }
+                preventDupes = true;
+                setTimeout(function() {
+                    preventDupes = false;
+                    // Do something after 5 seconds
+                }, 200);
+
+                // $("li:last-child").select();
+
+            }
+
+
+        })
+
 
 });
+
+
 
 $('body').on('focus', 'div.catBox1 li:last-child', function () {
     $(this).keypress(function (e) {
@@ -105,8 +125,16 @@ $('body').on('focus', 'div.catBox1 li:last-child', function () {
             event.preventDefault();
             //alert($(this).parent().find("ul").html());
             //alert($("div.catBox1 li:last-child"));//.append(newCat);
-            $("div.catBox1 ul").append(newCat);
-            $("div.catBox1 li:last-child input").focus();
+
+            if(!preventDupes) {
+                $("div.catBox1 ul").append(newCat);
+                $("div.catBox1 li:last-child input").focus();
+            }
+            preventDupes = true;
+            setTimeout(function() {
+                preventDupes = false;
+                // Do something after 5 seconds
+            }, 200);
             // $("li:last-child").select();
             var what = focus();
             //alert(what);
@@ -123,8 +151,16 @@ $('body').on('focus', 'div.catBox2 li:last-child', function () {
             event.preventDefault();
             //alert($(this).parent().find("ul").html());
             //alert($("div.catBox1 li:last-child"));//.append(newCat);
-            $("div.catBox2 ul").append(newCat);
-            $("div.catBox2 li:last-child input").focus();
+
+            if(!preventDupes) {
+                $("div.catBox2 ul").append(newCat);
+                $("div.catBox2 li:last-child input").focus();
+            }
+            preventDupes = true;
+            setTimeout(function() {
+                preventDupes = false;
+                // Do something after 5 seconds
+            }, 200);
             // $("li:last-child").select();
             var what = focus();
             //alert(what);
@@ -279,7 +315,7 @@ function makeCards() {
                 .animate({
                     top: '0px',
                     left: '0px'
-                }, 500, "linear", function () {})
+                }, 300, "linear", function () {})
         },
         cancel: "text",
         snap: "#droppable",
@@ -337,7 +373,10 @@ function wordCheck() {
     $("div#cardCounter").html(scoreText);
 
     if(wordCount==0){
-        $("div#statsBank").css("background","#90EE90")
+        $("div#statsBank,div#wordBank").css("background","#90EE90")
+        $("ul#catList").show();
+        $("input.entry").css("width","99%")
+        $("div.dropZone").hide();
 
     }
     else{
