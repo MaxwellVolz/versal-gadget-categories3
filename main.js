@@ -18,7 +18,7 @@ player.on('editableChanged', function (editableObj) {
         //refreshBtn();
         learnerState = false;
         saveBank();
-        $("input.entry").css("width","160px")
+        $("input.entry").css("width", "160px")
         $(".dropZone,div#cardCounter").hide();
         $("div#addNew,span.killBtn,ul#catList").show();
         //loadBank(attrs);
@@ -36,7 +36,7 @@ player.on('editableChanged', function (editableObj) {
         createDeck();
         makeCards();
         wordCheck();
-        $("div#statsBank,div#wordBank").css("background","lightgrey");
+        $("div#statsBank,div#wordBank").css("background", "lightgrey");
 
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "text");
     }
@@ -92,33 +92,30 @@ $('body').on('focus', 'div.catBox li:last-child', function () {
     var b = 0;
 
 
+    $(this).keypress(function (e) {
 
-
-        $(this).keypress(function (e) {
-
-            if (e.which == 13) {
-                event.preventDefault();
-                //alert($(this).parent().html());
-                if(!preventDupes) {
-                    $("div.catBox ul").append(newCat);
-                    $("div.catBox li:last-child input").focus();
-                }
-                preventDupes = true;
-                setTimeout(function() {
-                    preventDupes = false;
-                    // Do something after 5 seconds
-                }, 200);
-
-                // $("li:last-child").select();
-
+        if (e.which == 13) {
+            event.preventDefault();
+            //alert($(this).parent().html());
+            if (!preventDupes) {
+                $("div.catBox ul").append(newCat);
+                $("div.catBox li:last-child input").focus();
             }
+            preventDupes = true;
+            setTimeout(function () {
+                preventDupes = false;
+                // Do something after 5 seconds
+            }, 200);
+
+            // $("li:last-child").select();
+
+        }
 
 
-        })
+    })
 
 
 });
-
 
 
 $('body').on('focus', 'div.catBox1 li:last-child', function () {
@@ -129,12 +126,12 @@ $('body').on('focus', 'div.catBox1 li:last-child', function () {
             //alert($(this).parent().find("ul").html());
             //alert($("div.catBox1 li:last-child"));//.append(newCat);
 
-            if(!preventDupes) {
+            if (!preventDupes) {
                 $("div.catBox1 ul").append(newCat);
                 $("div.catBox1 li:last-child input").focus();
             }
             preventDupes = true;
-            setTimeout(function() {
+            setTimeout(function () {
                 preventDupes = false;
                 // Do something after 5 seconds
             }, 200);
@@ -155,12 +152,12 @@ $('body').on('focus', 'div.catBox2 li:last-child', function () {
             //alert($(this).parent().find("ul").html());
             //alert($("div.catBox1 li:last-child"));//.append(newCat);
 
-            if(!preventDupes) {
+            if (!preventDupes) {
                 $("div.catBox2 ul").append(newCat);
                 $("div.catBox2 li:last-child input").focus();
             }
             preventDupes = true;
-            setTimeout(function() {
+            setTimeout(function () {
                 preventDupes = false;
                 // Do something after 5 seconds
             }, 200);
@@ -318,7 +315,8 @@ function makeCards() {
                 .animate({
                     top: '0px',
                     left: '0px'
-                }, 300, "linear", function () {})
+                }, 300, "linear", function () {
+                })
         },
         cancel: "text",
         snap: "#droppable",
@@ -375,15 +373,15 @@ function wordCheck() {
     var scoreText = "Words left: " + wordCount;
     $("div#cardCounter").html(scoreText);
 
-    if(wordCount==0){
-        $("div#statsBank,div#wordBank").css("background","#90EE90")
+    if (wordCount == 0) {
+        $("div#statsBank,div#wordBank").css("background", "#90EE90")
         $("ul#catList").show();
-        $("input.entry").css("width","99%")
+        $("input.entry").css("width", "99%")
         $("div.dropZone").hide();
 
     }
-    else{
-        $("div#statsBank").css("background","lightgrey")
+    else {
+        $("div#statsBank").css("background", "lightgrey")
     }
 }
 var textArray = [];
@@ -405,17 +403,17 @@ function saveBank() {
         textArray.push(this.value);
         classArray.push(calass);
 
+
         var tempText = textArray[i];
         var tempClass = classArray[i];
-       // alert(textareaValue);
+        // alert(textareaValue);
 
         //alert(tempText);
 
+
         ++i;
 
-    });
-
-    var cat1head = $("div.catBox li#catHead").html();
+    });    var cat1head = $("div.catBox li#catHead").html();
     var cat2head = $("div.catBox1 li#catHead").html();
     var cat3head = $("div.catBox2 li#catHead").html();
 
@@ -445,41 +443,38 @@ function loadBank(attrs) {
     //alert(classArray[0]);
     var x = 0;
 
-    $.each(attrs.wordValues,function(){
+    $.each(attrs.wordValues, function () {
         //alert(attrs.wordClasses[x]);
 
-        var loadedCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' value="+ this +"></input></li>";
+        var loadedCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' value=" + this + "></input></li>";
 
-        if(attrs.wordClasses[x] == "catBox")
-        {
+        if (attrs.wordClasses[x] == "catBox") {
             $(".catBox ul#catList").append(loadedCat)
         }
-        if(attrs.wordClasses[x] == "catBox1")
-        {
+        if (attrs.wordClasses[x] == "catBox1") {
             $(".catBox1 ul#catList").append(loadedCat)
         }
-        if(attrs.wordClasses[x] == "catBox2")
-        {
+        if (attrs.wordClasses[x] == "catBox2") {
             $(".catBox2 ul#catList").append(loadedCat)
         }
         //alert( classArray[x]);
         var catDest = '\".' + classArray[x] + '\"';
         var loadValue = "loadValue is: " + textArray[x];
 
-       //alert($(textArrayObjs[x]).html());
+        //alert($(textArrayObjs[x]).html());
         ++x;
-
+e
     })
     //alert(textArrayObjs[1].value);
 
     //var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='Enter Word'></input></li>";
 
-/*
-    $('body').on('click', 'div#addNew', function () {
-        var randomNumber = Math.floor(Math.random() * 10000) + 1;
+    /*
+     $('body').on('click', 'div#addNew', function () {
+     var randomNumber = Math.floor(Math.random() * 10000) + 1;
 
-        $(this).parent().find("ul#catList").append(newCat);
-*/
+     $(this).parent().find("ul#catList").append(newCat);
+     */
 }
 
 function checkWin() {
