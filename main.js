@@ -18,9 +18,11 @@ player.on('editableChanged', function (editableObj) {
         //refreshBtn();
         learnerState = false;
         saveBank();
+        $("div.catBox2").show();
         $("input.entry").css("width", "160px")
         $(".dropZone,div#cardCounter").hide();
         $("div#addNew,span.killBtn,ul#catList").show();
+        $("div.catBox1").animate({'margin-left': '30.5px'}, 300, "linear", function () {});
         //loadBank(attrs);
         //$("textarea").attr("onclick", "this.focus();this.select()");
         $("div#wordBank").children().hide();
@@ -33,6 +35,7 @@ player.on('editableChanged', function (editableObj) {
         //$(".catBtn,.catBtn2,.killBtn,#insertWordBtn").hide();
         $("div#addNew,span.killBtn,ul#catList").hide();
 
+        cat3curtain();
         createDeck();
         makeCards();
         wordCheck();
@@ -251,11 +254,13 @@ $(window).bind("load", function () {
 var wordArray = [];
 var wordArray1 = [];
 var wordArray2 = [];
+var misses = 0;
 
 function createDeck() {
     wordArray = [];
     wordArray1 = [];
     wordArray2 = [];
+    misses = 0;
 
     $("div.catBox input.entry").each(function () {
         var cellText = $(this).val();
@@ -281,6 +286,7 @@ function makeCards() {
     var wordBankWidth = $("div#wordBank").width();
 
     $("div#wordBank").children().remove();
+
 
     e = 0;
     p = 0;
@@ -311,12 +317,14 @@ function makeCards() {
 
     $(".drag").draggable({
         revert: function (event, ui) {
+
+            ++misses;
             $(this).appendTo("div#wordBank")
                 .animate({
                     top: '0px',
                     left: '0px'
                 }, 300, "linear", function () {
-                })
+                });
         },
         cancel: "text",
         snap: "#droppable",
@@ -379,6 +387,8 @@ function wordCheck() {
         $("input.entry").css("width", "99%")
         $("div.dropZone").hide();
 
+
+
     }
     else {
         $("div#statsBank").css("background", "lightgrey")
@@ -413,7 +423,9 @@ function saveBank() {
 
         ++i;
 
-    });    var cat1head = $("div.catBox li#catHead").html();
+    });
+
+    var cat1head = $("div.catBox li#catHead").html();
     var cat2head = $("div.catBox1 li#catHead").html();
     var cat3head = $("div.catBox2 li#catHead").html();
 
@@ -477,19 +489,19 @@ e
      */
 }
 
-function checkWin() {
-    var x = 0;
-    $('.ui-state-highlight').each(function () {
-        ++x;
-        if (x >= 6) {
-            //catHeader depreciated
-            //$("#catHeader>textarea").val("Great Job!");
-        }
+function cat3curtain(){
 
-    });
-    x = 0;
+    if( !$('.catBox2 ul#catList li').length )         // use this if you are using id to check
+    {
+        // it exists
+        $("div.catBox2").hide();
+        $("div.catBox1").animate({'margin-left': '260px'}, 300, "linear", function () {});
+    }
+    else{
+        $("div.catBox2").show();
+        $("div.catBox1").animate({'margin-left': '30.5px'}, 300, "linear", function () {});
+    }
 }
-
 
 
 
