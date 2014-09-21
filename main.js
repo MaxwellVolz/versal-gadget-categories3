@@ -7,9 +7,15 @@ var wordCount = 0;
 var player = new VersalPlayerAPI();
 
 player.on('attributesChanged', function (attrs) {
+
     console.log('attributesChanged', attrs);
+    if (attrs) {
+        //textarea.value = attrs.textareaValue;
+        loadBank(attrs);
+        //textArrayObj[2].value = attrs.word2x
+        //textarea.value = textArray[0];
 
-
+    }
 });
 
 player.on('editableChanged', function (editableObj) {
@@ -34,7 +40,7 @@ player.on('editableChanged', function (editableObj) {
         learnerState = true;
         //$(".catBtn,.catBtn2,.killBtn,#insertWordBtn").hide();
         $("div#addNew,span.killBtn,ul#catList").hide();
-
+        saveBank();
         cat3curtain();
         createDeck();
         makeCards();
@@ -55,17 +61,7 @@ player.watchBodyHeight();
 
 
 // change textarea when attributes change
-player.on('attributesChanged', function (attrs) {
 
-
-    if (attrs) {
-        //textarea.value = attrs.textareaValue;
-        loadBank(attrs);
-        //textArrayObj[2].value = attrs.word2x
-        //textarea.value = textArray[0];
-
-    }
-});
 var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='Enter Word'></input></li>";
 
 
