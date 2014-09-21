@@ -405,21 +405,26 @@ function saveBank() {
         textArray.push(this.value);
         classArray.push(calass);
 
-
         var tempText = textArray[i];
         var tempClass = classArray[i];
        // alert(textareaValue);
 
         //alert(tempText);
 
-
         ++i;
 
     });
 
+    var cat1head = $("div.catBox li#catHead").html();
+    var cat2head = $("div.catBox1 li#catHead").html();
+    var cat3head = $("div.catBox2 li#catHead").html();
+
     player.setAttributes({
         wordValues: textArray,
-        wordClasses: classArray
+        wordClasses: classArray,
+        cat1header: cat1head,
+        cat2header: cat2head,
+        cat3header: cat3head
     });
 
 
@@ -429,6 +434,9 @@ function saveBank() {
 function loadBank(attrs) {
     i=0;
 
+    $("div.catBox li#catHead").html(attrs.cat1header);
+    $("div.catBox1 li#catHead").html(attrs.cat2header);
+    $("div.catBox2 li#catHead").html(attrs.cat3header);
 
     //alert("and the winner is" + );
     $(".catBox ul#catList,.catBox1 ul#catList,.catBox2 ul#catList").children().remove();

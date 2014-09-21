@@ -8,15 +8,9 @@
   "defaultConfig": {
       "chosenColor" : "#00cc00",
       "chosenWord" : "rip",
-	  "catHeadx": "Categories - click to change",
-	  	"word1x": "run",
-		"word2x": "jump",
-		"word3x": "swim",
-		"word4x": "man",
-		"word5x": "woman",
-		"word6x": "child",
-		"catName1x": "Verb",
-		"catName2x": "Noun"
+	  "cathead1" : "Category 1",
+      "cathead2" : "Category 2",
+      "cathead3" : "Category 3",
   },
   "defaultUserState": {
       "isBold" : false
