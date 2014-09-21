@@ -5,8 +5,10 @@ var learnerState = true;
 var wordCount = 0;
 
 var player = new VersalPlayerAPI();
+
 player.on('attributesChanged', function (attrs) {
     console.log('attributesChanged', attrs);
+
 
 });
 
@@ -15,10 +17,11 @@ player.on('editableChanged', function (editableObj) {
         //Author State
         //refreshBtn();
         learnerState = false;
+        saveBank();
         $("input.entry").css("width","160px")
         $(".dropZone,div#cardCounter").hide();
         $("div#addNew,span.killBtn,ul#catList").show();
-
+        //loadBank(attrs);
         //$("textarea").attr("onclick", "this.focus();this.select()");
         $("div#wordBank").children().hide();
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "button");
@@ -383,27 +386,92 @@ function wordCheck() {
         $("div#statsBank").css("background","lightgrey")
     }
 }
+var textArray = [];
+var classArray = [];
+var textArrayObjs = [];
 
 //find and save textareas
 function saveBank() {
-
-    //empty array
     textArray = [];
+    classArray = [];
+    textArrayObjs = [];
+    //empty array
 
-    $('textarea').each(function () {
-        textArrayObjs.push(this);
+    var i = 0;
+
+    $('input').each(function () {
+        var calass = $(this).parent().parent().parent().parent().attr('class');
+
         textArray.push(this.value);
+        classArray.push(calass);
+
+
+        var tempText = textArray[i];
+        var tempClass = classArray[i];
+       // alert(textareaValue);
+
+        //alert(tempText);
+
+
+        ++i;
 
     });
+
+    player.setAttributes({
+        wordValues: textArray,
+        wordClasses: classArray
+    });
+
 
 
 }
 
 function loadBank(attrs) {
-    //alert(player.attr("word1x"));
+    i=0;
+
+
+    //alert("and the winner is" + );
+    $(".catBox ul#catList,.catBox1 ul#catList,.catBox2 ul#catList").children().remove();
+
+    //alert(textArray.join("\n"));
+    //alert(classArray[0]);
+    var x = 0;
+
+    $.each(attrs.wordValues,function(){
+        //alert(attrs.wordClasses[x]);
+
+        var loadedCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' value="+ this +"></input></li>";
+
+        if(attrs.wordClasses[x] == "catBox")
+        {
+            $(".catBox ul#catList").append(loadedCat)
+        }
+        if(attrs.wordClasses[x] == "catBox1")
+        {
+            $(".catBox1 ul#catList").append(loadedCat)
+        }
+        if(attrs.wordClasses[x] == "catBox2")
+        {
+            $(".catBox2 ul#catList").append(loadedCat)
+        }
+        //alert( classArray[x]);
+        var catDest = '\".' + classArray[x] + '\"';
+        var loadValue = "loadValue is: " + textArray[x];
+
+       //alert($(textArrayObjs[x]).html());
+        ++x;
+
+    })
     //alert(textArrayObjs[1].value);
 
+    //var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='Enter Word'></input></li>";
 
+/*
+    $('body').on('click', 'div#addNew', function () {
+        var randomNumber = Math.floor(Math.random() * 10000) + 1;
+
+        $(this).parent().find("ul#catList").append(newCat);
+*/
 }
 
 function checkWin() {
