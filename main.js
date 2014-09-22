@@ -221,9 +221,8 @@ $(window).bind("load", function () {
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
                 $(this).addClass("pulseGreen2");
-                $(".aboutToDrop").animate({opacity: 0.0}, 200, "linear", function () {
-                    $(this).remove();
-                })
+                $(".aboutToDrop").remove();
+
                 pulseDropZone2();
                 setTimeout(function () {
                     // Do something after 5 seconds
@@ -238,9 +237,8 @@ $(window).bind("load", function () {
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
                 $(this).addClass("pulseGreen3");
-                $(".aboutToDrop").animate({opacity: 0.0}, 200, "linear", function () {
-                    $(this).remove();
-                })
+                $(".aboutToDrop").remove();
+
                 pulseDropZone3();
                 setTimeout(function () {
                     // Do something after 5 seconds
@@ -322,16 +320,16 @@ function makeCards() {
     $(".drag").draggable({
         revert: function (event, ui) {
 
-
-            pulseMiss();
             ++misses;
             wordCheck();
+            pulseMiss();
             $(this).appendTo("div#wordBank")
                 .animate({
                     top: '0px',
                     left: '0px'
                 }, 300, "linear", function () {
                 });
+
         },
         cancel: "text",
         snap: "#droppable",
@@ -405,7 +403,7 @@ function wordCheck() {
         $("div#statsBank,div#wordBank").css("background", "#90EE90")
         $("ul#catList").show();
         $("input.entry").css("width", "99%")
-        $("div.dropZone").hide();
+        $("div.dropZone,div.killBtn").hide();
         $("div#cardCounter").hide();
 
         var diff =  new Date();
@@ -534,7 +532,6 @@ function startTimer(){
 
     var diff =  new Date();
     startTime = Math.floor(diff/1000);
-
 
 }
 
