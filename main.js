@@ -3,6 +3,11 @@ var textArray = [];
 var textArrayObjs = [];
 var learnerState = true;
 var wordCount = 0;
+var startTime = 0;
+var endTime = 0;
+var totalTime = 0;
+var timeStart = false;
+
 
 var player = new VersalPlayerAPI();
 
@@ -23,6 +28,7 @@ player.on('editableChanged', function (editableObj) {
         //Author State
         //refreshBtn();
         learnerState = false;
+
         saveBank();
         $("div.catBox2").show();
         $("input.entry").css("width", "160px")
@@ -255,6 +261,8 @@ function createDeck() {
     wordArray2 = [];
     misses = 0;
 
+
+
     $("div.catBox input.entry").each(function () {
         var cellText = $(this).val();
         wordArray.push(cellText);
@@ -276,6 +284,9 @@ function createDeck() {
 }
 
 function makeCards() {
+
+
+
     var wordBankWidth = $("div#wordBank").width();
 
     $("div#wordBank").children().remove();
@@ -329,6 +340,10 @@ function makeCards() {
         start: function () {
             $("div.dropZone").css('background-color', 'whitesmoke');
             $(this).addClass("aboutToDrop");
+            if(!timeStart){
+                startTimer();
+                timeStart = true;
+            }
         },
         stop: function () {
             $("div.dropZone").css('background-color', 'white');
@@ -392,6 +407,10 @@ function wordCheck() {
         $("input.entry").css("width", "99%")
         $("div.dropZone").hide();
         $("div#cardCounter").hide();
+
+        var diff =  new Date();
+        endTime = Math.floor(diff/1000);
+        totalTime = endTime - startTime;
 
         displayResults();
 
@@ -503,11 +522,20 @@ function cat3curtain(){
 
 function displayResults(){
     $("div#wordBank")
-        .append("<div class='catCard drag'>Completed: " + textArray.length + "</div>");
+        .append("<div class='catCard drag'>" + textArray.length + " correct</div>");
     $("div#wordBank")
-        .append("<div class='catCard drag'>Misses: " + misses + "</div>");
+        .append("<div class='catCard drag'>" + misses + " misses</div>");
+    $("div#wordBank")
+        .append("<div class='catCard drag'>" + totalTime  + " seconds</div>");
 
 }
 
+function startTimer(){
+
+    var diff =  new Date();
+    startTime = Math.floor(diff/1000);
+
+
+}
 
 
