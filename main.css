@@ -38,7 +38,7 @@ div#catBank {
     z-index: 25;
 }
 
-div.catBox, div.catBox1 {
+div.catBox, div.catBox1 , div.catBox2{
     position: relative;
     float: left;
     height: 300px;
@@ -48,6 +48,8 @@ div.catBox, div.catBox1 {
     margin-right: 0px;
     background-color: white;
     overflow: hidden;
+    box-shadow: 1px 1px 4px #555;
+    border-radius: .2em;
 }
 
 div.catBox2 {
@@ -79,7 +81,7 @@ table#catHead, table#catHead2 {
     background-color: lightblue;
 }
 
-div.catWords, div.catWords2 {
+div.catWords, div.catWords1,div.catWords2{
     height: 240px;
     width: 200px;
     overflow-y: auto;

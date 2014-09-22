@@ -22,7 +22,7 @@
     <favorites_list name="Categories" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5370844">
+    <splitter split-orientation="horizontal" split-proportion="0.654699">
       <split-first>
         <leaf>
           <file leaf-file-name="versal.html" pinned="false" current="false" current-in-tab="false">
@@ -38,8 +38,8 @@
           <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7055118" vertical-offset="7882" max-vertical-offset="8568">
-                  <caret line="490" column="74" selection-start-line="490" selection-start-column="74" selection-end-line="490" selection-end-column="74" />
+                <state vertical-scroll-proportion="0.5620438" vertical-offset="6160" max-vertical-offset="8823">
+                  <caret line="385" column="67" selection-start-line="385" selection-start-column="67" selection-end-line="385" selection-end-column="67" />
                   <folding />
                 </state>
               </provider>
@@ -48,8 +48,8 @@
           <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.714286" vertical-offset="3133" max-vertical-offset="3876">
-                  <caret line="197" column="6" selection-start-line="197" selection-start-column="3" selection-end-line="197" selection-end-column="6" />
+                <state vertical-scroll-proportion="-2.4642856" vertical-offset="645" max-vertical-offset="3910">
+                  <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -58,8 +58,8 @@
           <file leaf-file-name="versal.json" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/versal.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="391">
-                  <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+                <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="391">
+                  <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -82,8 +82,8 @@
           <file leaf-file-name="versal.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/versal.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.29356357" vertical-offset="204" max-vertical-offset="1955">
-                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                <state vertical-scroll-proportion="-0.95487624" vertical-offset="1268" max-vertical-offset="1955">
+                  <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -101,18 +101,18 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/versal.json" />
         <option value="$PROJECT_DIR$/versal.html" />
-        <option value="$PROJECT_DIR$/main.css" />
+        <option value="$PROJECT_DIR$/versal.json" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/main.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="372" />
-    <option name="y" value="259" />
-    <option name="width" value="1343" />
-    <option name="height" value="812" />
+    <option name="x" value="2" />
+    <option name="y" value="3" />
+    <option name="width" value="1098" />
+    <option name="height" value="862" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -245,7 +245,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="372" y="259" width="1343" height="812" extended-state="0" />
+    <frame x="2" y="3" width="1098" height="862" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -253,7 +253,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11605124" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12476895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -554,16 +554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/versal.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="391">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.714286" vertical-offset="3133" max-vertical-offset="3876">
-          <caret line="197" column="6" selection-start-line="197" selection-start-column="3" selection-end-line="197" selection-end-column="6" />
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="391">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -576,10 +568,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4642856" vertical-offset="645" max-vertical-offset="3910">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7055118" vertical-offset="7882" max-vertical-offset="8568">
-          <caret line="490" column="74" selection-start-line="490" selection-start-column="74" selection-end-line="490" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.5620438" vertical-offset="6160" max-vertical-offset="8823">
+          <caret line="385" column="67" selection-start-line="385" selection-start-column="67" selection-end-line="385" selection-end-column="67" />
           <folding />
         </state>
       </provider>

@@ -1,13 +1,13 @@
 {
   "name": "categories",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "title": "Categories",
   "description": "Sorting application with persistant word bank",
   "author": "Max Volz",
   "launcher": "iframe",
   "defaultConfig": {
       "chosenColor" : "#00cc00",
-      "chosenWord" : "rip",
+      "chosenWord" : "skip",
 	  "cathead1" : "Category 1",
       "cathead2" : "Category 2",
       "cathead3" : "Category 3"

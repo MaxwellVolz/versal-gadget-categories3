@@ -45,7 +45,7 @@ player.on('editableChanged', function (editableObj) {
         createDeck();
         makeCards();
         wordCheck();
-        $("div#statsBank,div#wordBank").css("background", "lightgrey");
+        $("div#statsBank,div#wordBank").css("background", "#E5E4E2");
 
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "text");
     }
@@ -311,7 +311,10 @@ function makeCards() {
     $(".drag").draggable({
         revert: function (event, ui) {
 
+
+            pulseMiss();
             ++misses;
+            wordCheck();
             $(this).appendTo("div#wordBank")
                 .animate({
                     top: '0px',
@@ -361,17 +364,26 @@ function pulseDropZone3() {
     })
 }
 
+function pulseMiss() {
+    $("div#wordBank, div#statsBank").animate({'background-color': '#f08080'}, 300, "linear", function () {
+        $(this).animate({'background-color': '#E5E4E2'}, 300, "linear", function () {
+        })
+    })
+}
+
 
 function wordCheck() {
+
     var wordCount = 0;
     var x = 0;
+
     $('div.catCard').each(function () {
         ++x;
         ++wordCount;
 
     });
 
-    var scoreText = "Words left: " + wordCount;
+    var scoreText = "Misses: " + misses + "&nbsp;&nbsp;&nbsp;&nbsp;  Words left: " + wordCount;
     $("div#cardCounter").html(scoreText);
 
     if (wordCount == 0) {
@@ -379,14 +391,17 @@ function wordCheck() {
         $("ul#catList").show();
         $("input.entry").css("width", "99%")
         $("div.dropZone").hide();
+        $("div#cardCounter").hide();
 
         displayResults();
 
     }
     else {
-        $("div#statsBank").css("background", "lightgrey")
+        $("div#statsBank").css("background", "#E5E4E2");
+        $("div#cardCounter").show();
     }
 }
+
 var textArray = [];
 var classArray = [];
 var textArrayObjs = [];
