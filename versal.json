@@ -1,6 +1,6 @@
 {
   "name": "categories",
-  "version": "0.0.9",
+  "version": "0.0.12",
   "title": "Categories",
   "description": "Sorting application with persistant word bank",
   "author": "Max Volz",

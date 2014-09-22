@@ -136,6 +136,7 @@ div.drag {
     background-color: white;
     line-height: 90px;
     text-align: center;
+    font-weight: bold;
     box-shadow: 1px 1px 4px #555;
     border-radius: .2em;
 }

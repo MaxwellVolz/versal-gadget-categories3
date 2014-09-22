@@ -205,7 +205,6 @@ $(window).bind("load", function () {
                     // Do something after 5 seconds
                     wordCheck();
                 }, 300);
-                checkWin();
             }
         });
 
@@ -224,7 +223,6 @@ $(window).bind("load", function () {
                     // Do something after 5 seconds
                     wordCheck();
                 }, 300);
-                checkWin();
             }
         });
         //Category 3 stickiness
@@ -242,7 +240,6 @@ $(window).bind("load", function () {
                     // Do something after 5 seconds
                     wordCheck();
                 }, 300);
-                checkWin();
             }
         });
     });
@@ -284,15 +281,15 @@ function makeCards() {
     $("div#wordBank").children().remove();
 
 
-    e = 0;
+    h = 0;
     p = 0;
     f = 0;
 
-    $.each(wordArray, function (e) {
+    $.each(wordArray, function (h) {
         $("div#wordBank")
-            .append("<div class='catCard drag cat'>" + wordArray[e] + "</div>");
+            .append("<div class='catCard drag cat'>" + wordArray[h] + "</div>");
         wordBankWidth += 160;
-        ++e;
+        ++h;
     });
     $.each(wordArray1, function (p) {
         $("div#wordBank")
@@ -383,7 +380,7 @@ function wordCheck() {
         $("input.entry").css("width", "99%")
         $("div.dropZone").hide();
 
-
+        displayResults();
 
     }
     else {
@@ -471,18 +468,8 @@ function loadBank(attrs) {
 
         //alert($(textArrayObjs[x]).html());
         ++x;
-e
     })
-    //alert(textArrayObjs[1].value);
 
-    //var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='Enter Word'></input></li>";
-
-    /*
-     $('body').on('click', 'div#addNew', function () {
-     var randomNumber = Math.floor(Math.random() * 10000) + 1;
-
-     $(this).parent().find("ul#catList").append(newCat);
-     */
 }
 
 function cat3curtain(){
@@ -497,6 +484,14 @@ function cat3curtain(){
         $("div.catBox2").show();
         $("div.catBox1").animate({'margin-left': '30.5px'}, 300, "linear", function () {});
     }
+}
+
+function displayResults(){
+    $("div#wordBank")
+        .append("<div class='catCard drag'>Completed: " + textArray.length + "</div>");
+    $("div#wordBank")
+        .append("<div class='catCard drag'>Misses: " + misses + "</div>");
+
 }
 
 
