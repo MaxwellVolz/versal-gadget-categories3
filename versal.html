@@ -15,6 +15,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
+    <script src="plugins/jquery.countdownTimer.min.js"></script>
+
     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 </head>
 <body>
@@ -22,14 +24,14 @@
 
 <div id="categoriesContainer">
 
-    <div id="wordBank">
+    <div id="wordBank" style="background: #fefdf9;">
 
     </div>
     <div id="catBank">
         <div class="catBox">
 
 
-            <li id='catHead' contenteditable='true'>Category 1</li>
+            <li id='catHead' contenteditable='true'>Add a category</li>
 
 
             <div class="catWords">
@@ -38,13 +40,13 @@
 
                 </ul>
             </div>
-            <div id="addNew">Add New Card</div>
+            <div id="addNew">add new card</div>
 
         </div>
         <div class="catBox1">
 
 
-            <li id='catHead' contenteditable='true'>Category 2</li>
+            <li id='catHead' contenteditable='true'>Add a category</li>
 
 
             <div class="catWords">
@@ -53,13 +55,13 @@
 
                 </ul>
             </div>
-            <div id="addNew">Add New Card</div>
+            <div id="addNew">add new card</div>
 
         </div>
         <div class="catBox2">
 
 
-            <li id='catHead' contenteditable='true'>Category 3</li>
+            <li id='catHead' contenteditable='true'>Add a category</li>
 
 
             <div class="catWords">
@@ -68,7 +70,7 @@
 
                 </ul>
             </div>
-            <div id="addNew">Add New Card</div>
+            <div id="addNew">add new card</div>
 
         </div>
         <!--
@@ -97,8 +99,15 @@
 
     </div>
     <div id="statsBank">
-        <div id="scoreboard">
-            <div id="cardCounter"></div>
+        <span id="card_title">Cards remaining:</span>
+        <span id="cardCounter"></span>
+        <span id="timer_title">Time remaining:</span>
+        <span id="ms_timer" class="style size_lg">
+
+            <div id="scoreboard">
+
+            <div id="timer"></div>
+
         </div>
     </div>
 </div>

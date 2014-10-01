@@ -7,9 +7,17 @@ var startTime = 0;
 var endTime = 0;
 var totalTime = 0;
 var timeStart = false;
-
+var timeLeft = 0;
 
 var player = new VersalPlayerAPI();
+
+player.setPropertySheetAttributes({
+    timeOption: { type: 'Select',
+        options: ['Record', 'Countdown']
+    },
+    timeAllowed:  { type: 'Range', min: 10, max: 300, step: 5 }
+
+});
 
 player.on('attributesChanged', function (attrs) {
 
@@ -19,8 +27,12 @@ player.on('attributesChanged', function (attrs) {
         loadBank(attrs);
         //textArrayObj[2].value = attrs.word2x
         //textarea.value = textArray[0];
+        if(attrs.timeOption == "Countdown"){
+            timeLeft = attrs.timeAllowed;
 
+        };
     }
+
 });
 
 player.on('editableChanged', function (editableObj) {
@@ -29,9 +41,17 @@ player.on('editableChanged', function (editableObj) {
         //refreshBtn();
         learnerState = false;
 
+        //cat header color set
+        $("li#catHead").css({
+            "-webkit-box-shadow":"inset 0px 0px 0px 10px #c7c3be",
+            "-moz-box-shadow":"inset 0px 0px 0px 10px #c7c3be",
+            "box-shadow":"inset 0px 0px 0px 10px #c7c3be",
+            "background-color":"white",
+            "color":"#7c7975"
+        })
+
         saveBank();
         $("div.catBox2").show();
-        $("input.entry").css("width", "160px")
         $(".dropZone,div#cardCounter").hide();
         $("div#addNew,span.killBtn,ul#catList").show();
         $("div.catBox1").animate({'margin-left': '30.5px'}, 300, "linear", function () {});
@@ -45,14 +65,25 @@ player.on('editableChanged', function (editableObj) {
         $("div.dropZone,div#cardCounter").show();
         learnerState = true;
         //$(".catBtn,.catBtn2,.killBtn,#insertWordBtn").hide();
+
+
+        //cathead reset
+        $("li#catHead").css({
+            "-webkit-box-shadow":"inset 0px 0px 0px 0px #c7c3be",
+            "-moz-box-shadow":"inset 0px 0px 0px 0px #c7c3be",
+            "box-shadow":"inset 0px 0px 0px 0px #c7c3be",
+            "background-color":"#c7c3be",
+            "color":"white"
+        })
+
         $("div#addNew,span.killBtn,ul#catList").hide();
         saveBank();
         cat3curtain();
         createDeck();
         makeCards();
         wordCheck();
-        $("div#statsBank,div#wordBank").css("background", "#E5E4E2");
-
+        $("div#wordBank").css("background", "#fefdf9");
+        $("div#statsBank").css("background", "#f8f7f1");
         //$("#draggable, #draggable1, #draggable2, #draggable3, #draggable4, #draggable5").draggable("option", "cancel", "text");
     }
 });
@@ -65,11 +96,9 @@ player.watchBodyHeight();
 
 // save a textarea
 
-
 // change textarea when attributes change
 
-var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='Enter Word'></input></li>";
-
+var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='card'></input></li>";
 
 $('body').on('click', 'div#addNew', function () {
     var randomNumber = Math.floor(Math.random() * 10000) + 1;
@@ -96,7 +125,6 @@ var preventDupes = false;
 $('body').on('focus', 'div.catBox li:last-child', function () {
     var b = 0;
 
-
     $(this).keypress(function (e) {
 
         if (e.which == 13) {
@@ -116,12 +144,9 @@ $('body').on('focus', 'div.catBox li:last-child', function () {
 
         }
 
-
     })
 
-
 });
-
 
 $('body').on('focus', 'div.catBox1 li:last-child', function () {
     $(this).keypress(function (e) {
@@ -175,28 +200,22 @@ $('body').on('focus', 'div.catBox2 li:last-child', function () {
 
 });
 
-
 $('body').on('click', 'div.killCard', function () {
     //$(this).parent().attr('value');
 });
-
 
 $('body').on('mouseover', 'span.killBtn,div.dropZone', function () {
     $(this).css({cursor: 'default'});
 
 });
 
-
 //update card text when deselected
 var entryArray = [];
 
-
 $(window).bind("load", function () {
-
 
     $(function () {
         //Make drag class draggable
-
 
         //Category 1 stickiness
         $("#droppable1").droppable({
@@ -247,7 +266,9 @@ $(window).bind("load", function () {
             }
         });
     });
+
 });
+
 var wordArray = [];
 var wordArray1 = [];
 var wordArray2 = [];
@@ -258,8 +279,6 @@ function createDeck() {
     wordArray1 = [];
     wordArray2 = [];
     misses = 0;
-
-
 
     $("div.catBox input.entry").each(function () {
         var cellText = $(this).val();
@@ -289,7 +308,6 @@ function makeCards() {
 
     $("div#wordBank").children().remove();
 
-
     h = 0;
     p = 0;
     f = 0;
@@ -314,7 +332,11 @@ function makeCards() {
     });
 
     wordBankWidth += "px";
-    $("div#wordBank").css("width", wordBankWidth);
+
+    $("div#wordBank").css({
+        "width": wordBankWidth,
+        "background-color": "#fefdf9"
+    });
 
 
     $(".drag").draggable({
@@ -336,19 +358,19 @@ function makeCards() {
         snapMode: "inner",
         containment: "body",
         start: function () {
-            $("div.dropZone").css('background-color', 'whitesmoke');
+
             $(this).addClass("aboutToDrop");
             if(!timeStart){
                 startTimer();
+                startClock();
                 timeStart = true;
             }
         },
         stop: function () {
-            $("div.dropZone").css('background-color', 'white');
+
             $(this).removeClass("aboutToDrop");
         }
     });
-
 
     //end of make cards
     $("div.drag:nth-child(odd)").appendTo("div#wordBank");
@@ -358,28 +380,28 @@ function makeCards() {
 
 }
 function pulseDropZone() {
-    $("div.pulseGreen").animate({'background-color': '#90EE90'}, 300, "linear", function () {
+    $("div.pulseGreen").animate({'background-color': '#86f4b2'}, 300, "linear", function () {
         $(this).animate({'background-color': 'white'}, 300, "linear", function () {
         })
     })
 
 }
 function pulseDropZone2() {
-    $("div.pulseGreen2").animate({'background-color': '#90EE90'}, 300, "linear", function () {
+    $("div.pulseGreen2").animate({'background-color': '#86f4b2'}, 300, "linear", function () {
         $(this).animate({'background-color': 'white'}, 300, "linear", function () {
         })
     })
 }
 function pulseDropZone3() {
-    $("div.pulseGreen3").animate({'background-color': '#90EE90'}, 300, "linear", function () {
+    $("div.pulseGreen3").animate({'background-color': '#86f4b2'}, 300, "linear", function () {
         $(this).animate({'background-color': 'white'}, 300, "linear", function () {
         })
     })
 }
 
 function pulseMiss() {
-    $("div#wordBank, div#statsBank").animate({'background-color': '#f08080'}, 300, "linear", function () {
-        $(this).animate({'background-color': '#E5E4E2'}, 300, "linear", function () {
+    $("div#wordBank").animate({'background-color': '#f08080'}, 300, "linear", function () {
+        $(this).animate({'background-color': '#fefdf9'}, 300, "linear", function () {
         })
     })
 }
@@ -396,13 +418,12 @@ function wordCheck() {
 
     });
 
-    var scoreText = "Misses: " + misses + "&nbsp;&nbsp;&nbsp;&nbsp;  Words left: " + wordCount;
-    $("div#cardCounter").html(scoreText);
+    //var scoreText = "Misses: " + misses + "&nbsp;&nbsp;&nbsp;&nbsp;  Words left: " + wordCount;
+    $("span#cardCounter").html(wordCount);
 
     if (wordCount == 0) {
-        $("div#statsBank,div#wordBank").css("background", "#90EE90")
+        $("div#wordBank").css("background", "#86f4b2")
         $("ul#catList").show();
-        $("input.entry").css("width", "99%")
         $("div.dropZone,div.killBtn").hide();
         $("div#cardCounter").hide();
 
@@ -410,11 +431,15 @@ function wordCheck() {
         endTime = Math.floor(diff/1000);
         totalTime = endTime - startTime;
 
+        if(totalTime >= 999){
+            totalTime=999;
+        }
+
         displayResults();
 
     }
     else {
-        $("div#statsBank").css("background", "#E5E4E2");
+        $("div#statsBank").css("background", "#f8f7f1");
         $("div#cardCounter").show();
     }
 }
@@ -462,8 +487,6 @@ function saveBank() {
         cat3header: cat3head
     });
 
-
-
 }
 
 function loadBank(attrs) {
@@ -498,6 +521,8 @@ function loadBank(attrs) {
         var catDest = '\".' + classArray[x] + '\"';
         var loadValue = "loadValue is: " + textArray[x];
 
+        $("ul#catList li").css("marginBottom","8px");
+
         //alert($(textArrayObjs[x]).html());
         ++x;
     })
@@ -519,12 +544,22 @@ function cat3curtain(){
 }
 
 function displayResults(){
+
     $("div#wordBank")
-        .append("<div class='catCard drag'>" + textArray.length + " correct</div>");
-    $("div#wordBank")
-        .append("<div class='catCard drag'>" + misses + " misses</div>");
-    $("div#wordBank")
-        .append("<div class='catCard drag'>" + totalTime  + " seconds</div>");
+        .append("<div class='correctHeader'>" + textArray.length +
+            "</div><div id='correctSub'>correct</div>" +
+            "<div class='incorrectHeader'>" + misses + "</div>" +
+            "<div id='incorrectSub'>incorrect</div>");
+
+    var poo = $('span#ms_timer').html();
+
+    $("div#statsBank").children("span").hide();
+
+    $("div#statsBank")
+        .append("<span class='timeResult'>Time remaining: " + poo +
+            "</span>");
+
+
 
 }
 
@@ -533,6 +568,30 @@ function startTimer(){
     var diff =  new Date();
     startTime = Math.floor(diff/1000);
 
+    /*
+    var timer = setInterval(function() {
+        timeLeft -= 1;
+        $("div#timer").html("Time Left: " + timeLeft);
+
+    }, 1000);
+    */
 }
 
+function timeisUp() {
+    //Code to be executed when timer expires.
+}
 
+function startClock(){
+
+    var secondsVar = timeLeft % 60;
+    var minutesVar =  Math.floor(timeLeft/60);
+
+    $('#ms_timer').countdowntimer({
+        minutes : minutesVar,
+        seconds : secondsVar,
+        size : "lg",
+        backgroundColor: "#f8f7f1",
+        fontColor : "#7c7975",
+        timeUp : timeisUp
+    });
+}
