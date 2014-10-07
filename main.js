@@ -42,18 +42,16 @@ player.on('editableChanged', function (editableObj) {
         learnerState = false;
 
         //cat header color set
-        $("li#catHead").css({
-            "-webkit-box-shadow":"inset 0px 0px 0px 10px #c7c3be",
-            "-moz-box-shadow":"inset 0px 0px 0px 10px #c7c3be",
-            "box-shadow":"inset 0px 0px 0px 10px #c7c3be",
+        $("input.headerEntry").css({
+            "color":"#7c7975",
             "background-color":"white",
-            "color":"#7c7975"
+            "box-shadow": "none"
         })
 
         saveBank();
         $("div.catBox2").show();
         $(".dropZone,div#cardCounter").hide();
-        $("div#addNew,span.killBtn,ul#catList").show();
+        $("div#addNew,i,ul#catList").show();
         $("div.catBox1").animate({'margin-left': '30.5px'}, 300, "linear", function () {});
         //loadBank(attrs);
         //$("textarea").attr("onclick", "this.focus();this.select()");
@@ -68,15 +66,13 @@ player.on('editableChanged', function (editableObj) {
 
 
         //cathead reset
-        $("li#catHead").css({
-            "-webkit-box-shadow":"inset 0px 0px 0px 0px #c7c3be",
-            "-moz-box-shadow":"inset 0px 0px 0px 0px #c7c3be",
-            "box-shadow":"inset 0px 0px 0px 0px #c7c3be",
+        $("input.headerEntry").css({
             "background-color":"#c7c3be",
-            "color":"white"
+            "color":"white",
+            "box-shadow": "none"
         })
 
-        $("div#addNew,span.killBtn,ul#catList").hide();
+        $("div#addNew,i,ul#catList").hide();
         saveBank();
         cat3curtain();
         createDeck();
@@ -98,7 +94,7 @@ player.watchBodyHeight();
 
 // change textarea when attributes change
 
-var newCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' placeholder='card'></input></li>";
+var newCat = "<li><i class='fa fa-times-circle'></i><input contenteditable='true' class='entry' placeholder='card'></input></li>";
 
 $('body').on('click', 'div#addNew', function () {
     var randomNumber = Math.floor(Math.random() * 10000) + 1;
@@ -110,7 +106,7 @@ $('body').on('click', 'div#addNew', function () {
     //$(this).closest(".catWords2").prepend(newCat);
 });
 
-$('body').on('click', 'span.killBtn', function () {
+$('body').on('click', 'i', function () {
     $(this).parent().remove();
 });
 
@@ -479,6 +475,11 @@ function saveBank() {
     var cat2head = $("div.catBox1 li#catHead").html();
     var cat3head = $("div.catBox2 li#catHead").html();
 
+   // var textGrab = $("input#headerEntry").val();
+    //alert(textGrab);
+
+
+
     player.setAttributes({
         wordValues: textArray,
         wordClasses: classArray,
@@ -492,7 +493,7 @@ function saveBank() {
 function loadBank(attrs) {
     i=0;
 
-    $("div.catBox li#catHead").html(attrs.cat1header);
+    //$("div.catBox li#catHead").html(attrs.cat1header);
     $("div.catBox1 li#catHead").html(attrs.cat2header);
     $("div.catBox2 li#catHead").html(attrs.cat3header);
 
@@ -506,7 +507,7 @@ function loadBank(attrs) {
     $.each(attrs.wordValues, function () {
         //alert(attrs.wordClasses[x]);
 
-        var loadedCat = "<li><span class='killBtn'>&#x2716;</span><input contenteditable='true' class='entry' value=" + this + "></input></li>";
+        var loadedCat = "<li><i class='fa fa-times-circle'></i><input contenteditable='true' class='entry' value=" + this + "></input></li>";
 
         if (attrs.wordClasses[x] == "catBox") {
             $(".catBox ul#catList").append(loadedCat)
@@ -521,7 +522,7 @@ function loadBank(attrs) {
         var catDest = '\".' + classArray[x] + '\"';
         var loadValue = "loadValue is: " + textArray[x];
 
-        $("ul#catList li").css("marginBottom","8px");
+
 
         //alert($(textArrayObjs[x]).html());
         ++x;
