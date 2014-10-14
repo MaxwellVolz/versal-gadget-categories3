@@ -58,13 +58,34 @@ player.watchBodyHeight();
 $('body').on('click', '.card', function () {
     //alert("hey");
     $(this).children("input").focus();
+    $(this).css({
+        'border-style':'solid',
+        'background-color':'#ffffff'
+    })
+    $(this).children("input").css({
+        'background-color':'#ffffff'
+    });
 });
 
-//destory card
+//premade card
+var cardPremade = "<div class='card'><div class='cardCategories'></div><i class='killCard icon-remove icon-1x'></i><input placeholder='new card'></div>";
+
+//destroy card
 $('body').on('click', '.killCard', function () {
     //alert("hey");
     $(this).parent().remove();
+
 });
+
+//make and focus new card
+$('body').on('click', '.newCard', function () {
+    //$('.cardReel').append(cardPremade);
+    $(cardPremade).insertBefore('.newCard');
+    var cardAmount = $(".card").size();
+    $(".card input").focus();
+});
+
+//set cards name or make dotted
 $('body').on('blur', '.card', function () {
 
     //check for value in new card input
@@ -89,12 +110,8 @@ $('body').on('blur', '.card', function () {
         $(this).children("input").css({
             'background-color':'#ffffff'
         });
+
     }
-
-
-
-
-
     //$(this).parent().remove();
 });
 

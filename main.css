@@ -47,7 +47,7 @@ div.reset{
     float:right;
     margin-top:20px;
     width:42px;
-    height:87px;
+    height:67px;
 
 }
 i.icon-repeat{
@@ -74,7 +74,7 @@ div.timer span{
 }
 div.cardReel{
     position:relative;
-    width:722px;
+    width:1444px;
     height:120px;
 }
 div.categorySection{
@@ -92,6 +92,29 @@ div.card{
     background-color:#ffffff;
     border: 1px solid #c7c3be;
     margin-left:12px;
+}
+
+
+div.newCard{
+    position:relative;
+    float:left;
+    height:94px;
+    width:94px;
+    margin-left:12px;
+    border: 1px dotted #c7c3be;
+    background-color: #f2f1ed;
+}
+
+div.newCard > input{
+    margin-left:4px;
+    margin-top:35px;
+    height:18px;
+    width:84px;
+    background-color: #f2f1ed;
+    border: 1px solid #c7c3be;
+    border-style:none;
+    text-align:center;
+    font-size:14px;
 }
 
 i.killCard{

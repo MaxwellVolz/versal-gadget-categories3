@@ -28,8 +28,8 @@
           <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="4182">
-                  <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+                <state vertical-scroll-proportion="-9.785714" vertical-offset="15" max-vertical-offset="4471">
+                  <caret line="17" column="14" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -38,8 +38,8 @@
           <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-25.571428" vertical-offset="831" max-vertical-offset="3553">
-                  <caret line="91" column="28" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="28" />
+                <state vertical-scroll-proportion="-10.535714" vertical-offset="1286" max-vertical-offset="3944">
+                  <caret line="93" column="3" selection-start-line="93" selection-start-column="3" selection-end-line="93" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -72,8 +72,8 @@
           <file leaf-file-name="versal.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/versal.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6080097" vertical-offset="400" max-vertical-offset="1581">
-                  <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+                <state vertical-scroll-proportion="0.31917477" vertical-offset="553" max-vertical-offset="1564">
+                  <caret line="48" column="39" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -100,8 +100,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="560" />
-    <option name="y" value="25" />
+    <option name="x" value="159" />
+    <option name="y" value="46" />
     <option name="width" value="1360" />
     <option name="height" value="999" />
   </component>
@@ -241,7 +241,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="560" y="25" width="1360" height="999" extended-state="0" />
+    <frame x="159" y="46" width="1360" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -676,14 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.72" vertical-offset="0" max-vertical-offset="170">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newMain.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13789108" vertical-offset="0" max-vertical-offset="1513">
@@ -692,26 +684,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/versal.html">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6080097" vertical-offset="400" max-vertical-offset="1581">
-          <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+        <state vertical-scroll-proportion="-2.72" vertical-offset="0" max-vertical-offset="170">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.css">
+    <entry file="file://$PROJECT_DIR$/versal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.571428" vertical-offset="831" max-vertical-offset="3553">
-          <caret line="91" column="28" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.31917477" vertical-offset="553" max-vertical-offset="1564">
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="4182">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+        <state vertical-scroll-proportion="-9.785714" vertical-offset="15" max-vertical-offset="4471">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.535714" vertical-offset="1286" max-vertical-offset="3944">
+          <caret line="93" column="3" selection-start-line="93" selection-start-column="3" selection-end-line="93" selection-end-column="3" />
           <folding />
         </state>
       </provider>
