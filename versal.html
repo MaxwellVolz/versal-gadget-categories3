@@ -17,101 +17,69 @@
 
     <script src="plugins/jquery.countdownTimer.min.js"></script>
 
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
 
     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 </head>
 <body>
 
-
-<div id="categoriesContainer">
-
-    <div id="wordBank" style="background: #fefdf9;">
-
-    </div>
-    <div id="catBank">
-        <div class="catBox">
-
-
-            <li id='catHead' contenteditable='true'><input contenteditable='true' class='headerEntry' placeholder='Add a category'></li>
-
-
-            <div class="catWords">
-                <div class="dropZone" id="droppable1">Drop Area</div>
-                <ul id="catList">
-                </ul>
+    <div class="upperCardSection">
+        <div class="scoreboardSection">
+            <div class="timer">
+                <span>Time: 0:12</span><br>
+                <span>Score: 8/8</span>
             </div>
-            <div id="addNew">add new card</div>
+            <div class="reset">
+                <i class="icon-repeat icon-2x"></i>
+            </div>
 
         </div>
-        <div class="catBox1">
-
-
-            <li id='catHead' contenteditable='true'><input contenteditable='true' class='headerEntry' placeholder='Add a category'></li>
-
-
-            <div class="catWords">
-                <div class="dropZone" id="droppable2">Drop Area</div>
-                <ul id="catList">
-
-                </ul>
+        <div class="cardReel">
+            <!-- Insert Cards Here !-->
+            <div class="card">
+                <div class="cardCategories"></div>
+                <i class="killCard icon-remove icon-1x"></i>
+                <input placeholder="new card">
             </div>
-            <div id="addNew">add new card</div>
-
-        </div>
-        <div class="catBox2">
-
-
-            <li id='catHead' contenteditable='true'><input contenteditable='true' class='headerEntry' placeholder='Add a category'></li>
-
-
-            <div class="catWords">
-                <div class="dropZone" id="droppable3">Drop Area</div>
-                <ul id="catList">
-
-                </ul>
+            <div class="card">
+                <div class="cardCategories"></div>
+                <i class="killCard icon-remove icon-1x"></i>
+                <input placeholder="new card">
             </div>
-            <div id="addNew">add new card</div>
-
-        </div>
-        <!--
-        <div class="catBox1">
-            <table id="catHead">
-                <tr>
-                    <td contenteditable='true'>Category 2</td>
-                </tr>
-            </table>
-            <div class="catBoxScroller">
-                <div class="catWords">
-                <table>
-                    <tr><td class="lastTD"></td></tr>
-                </table>
-                </div>
+            <div class="card">
+                <div class="cardCategories"></div>
+                <i class="killCard icon-remove icon-1x"></i>
+                <input placeholder="new card">
             </div>
-            <table id="addNew">
-                <tr id="addTD">
-                    <td>Add New Card</td>
-                </tr>
-            </table>
-
-        </div>
-        -->
-
-
-    </div>
-    <div id="statsBank">
-        <span id="card_title">Cards remaining:</span>
-        <span id="cardCounter"></span>
-        <span id="timer_title">Time remaining:</span>
-        <span id="ms_timer" class="style size_lg">
-
-            <div id="scoreboard">
-
-            <div id="timer"></div>
+            <div class="card"></div>
 
         </div>
     </div>
-</div>
+
+    <div class="categorySection">
+        <!-- Insert Categories Here !-->
+        <div class="categories" id="category1">
+            <div class="categoryHeader">
+                <input placeholder="add category">
+            </div>
+        </div>
+        <div class="categories" id="category2">
+            <div class="categoryHeader">
+                <h2>category2</h2>
+                <i class="icon-remove icon-2x"></i>
+            </div>
+        </div>
+        <div class="categories" id="category3">
+            <div class="categoryHeader"></div>
+        </div>
+        <div class="categories" id="category4">
+            <div class="categoryHeader"></div>
+        </div>
+    </div>
+
+
 
 
 <script src="main.js"></script>
