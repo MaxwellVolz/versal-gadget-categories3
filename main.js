@@ -1,12 +1,6 @@
 //global vars
-var textArray = [];
-var textArrayObjs = [];
-var learnerState = true;
-var wordCount = 0;
+
 var startTime = 0;
-var endTime = 0;
-var totalTime = 0;
-var timeStart = false;
 var timeLeft = 0;
 
 var player = new VersalPlayerAPI();
@@ -43,6 +37,7 @@ player.on('editableChanged', function (editableObj) {
         }
 });
 
+
 // send this command to receive initial events
 player.startListening();
 
@@ -55,66 +50,75 @@ player.watchBodyHeight();
 
 
 //focus on text for card
-$('body').on('click', '.card', function () {
+$('body').on('click', '.face', function () {
     //alert("hey");
     $(this).children("input").focus();
-    $(this).css({
-        'border-style':'solid',
-        'background-color':'#ffffff'
-    })
-    $(this).children("input").css({
-        'background-color':'#ffffff'
-    });
 });
 
 //premade card
-var cardPremade = "<div class='card'><div class='cardCategories'></div><i class='killCard icon-remove icon-1x'></i><input placeholder='new card'></div>";
-
+var cardPremade = "<div class='draggable card'><div class='face'><div class='catDotContainer'></div><div class='cardCategories'></div><i class='killCard icon-remove icon-1x'></i><input placeholder='new card'></div></div>";
+var ojDotPremade = "<i id='ojDot' class='killDot fa icon-circle'><i class='dotX icon-remove icon-1x'></i></i>";
+var tealDotPremade = "<i id='tealDot' class='killDot fa icon-circle'><i class='dotX icon-remove icon-1x'></i></i>";
+var blueDotPremade = "<i id='blueDot' class='killDot fa icon-circle'><i class='dotX icon-remove icon-1x'></i></i>";
+var redDotPremade = "<i id='redDot' class='killDot fa icon-circle'><i class='dotX icon-remove icon-1x'></i></i>";
+    
 //destroy card
 $('body').on('click', '.killCard', function () {
     //alert("hey");
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
 
 });
 
 //make and focus new card
 $('body').on('click', '.newCard', function () {
+
     //$('.cardReel').append(cardPremade);
     $(cardPremade).insertBefore('.newCard');
+
+   $(this).children("input").focus();
+
     var cardAmount = $(".card").size();
-    $(".card input").focus();
+
+
+    //reinitialize dragging on dynamic cards
+    makeItDrag();
 });
 
-//set cards name or make dotted
-$('body').on('blur', '.card', function () {
+//click controller for category dots
+$('body').on('click','i.dotX',function(){
 
-    //check for value in new card input
-    var tempVal = $(this).children("input").val();
+    //get currently clicked dots id for class name
+    var thisID = $(this).parent().attr("id");
 
-    if(tempVal == ""){
+    //remove the color class from the card object
+    $(this).parent().parent().parent().parent().removeClass(thisID);
 
-        //set new card style
-        $(this).css({
-            'border-style':'dotted',
-            'background-color':'#f2f1ed'
-        })
-        $(this).children("input").css({
-            'background-color':'#f2f1ed'
-        });
-    }
-    else{
-        $(this).css({
-            'border-style':'solid',
-            'background-color':'#ffffff'
-        })
-        $(this).children("input").css({
-            'background-color':'#ffffff'
-        });
+    //remove the colored dot
+    $(this).parent().remove();
+})
 
-    }
-    //$(this).parent().remove();
-});
 
+//make that shit draggable
+function makeItDrag(){
+    $(".draggable").draggable({
+        revert: function(is_valid_drop){
+            console.log("is_valid_drop = " + is_valid_drop);
+            if(!is_valid_drop){
+
+                //make a log
+                console.log("revert invalid");
+
+                //send to back of cardReel stack
+                $(this).appendTo(".cardReel");
+
+                return true;
+            } else {
+
+            }
+
+        }
+    });
+}
 
 
 //update card text when deselected
@@ -122,18 +126,21 @@ var entryArray = [];
 
 $(window).bind("load", function () {
 
+    //$(".card").css({ '-moz-transform': 'rotateX(' + 180 + 'deg)'});
+    //$('div.card #f1_card').addClass('rotate180d');
+
+    makeItDrag();
+
+
     $(function () {
         //Make drag class draggable
 
         //Category 1 stickiness
-        $("#droppable1").droppable({
-            accept: ".cat",
+        $("#category1").droppable({
+            accept: ".draggable",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
-                $(this).addClass("pulseGreen");
-                $(".aboutToDrop").remove();
-                pulseDropZone();
                 setTimeout(function () {
                     // Do something after 5 seconds
 
@@ -181,38 +188,7 @@ $(window).bind("load", function () {
 function makeCards() {
 
 
-    $(".drag").draggable({
-        revert: function (event, ui) {
 
-            ++misses;
-            wordCheck();
-            pulseMiss();
-            $(this).appendTo("div#wordBank")
-                .animate({
-                    top: '0px',
-                    left: '0px'
-                }, 300, "linear", function () {
-                });
-
-        },
-        cancel: "text",
-        snap: "#droppable",
-        snapMode: "inner",
-        containment: "body",
-        start: function () {
-
-            $(this).addClass("aboutToDrop");
-            if(!timeStart){
-                startTimer();
-                startClock();
-                timeStart = true;
-            }
-        },
-        stop: function () {
-
-            $(this).removeClass("aboutToDrop");
-        }
-    });
 
     //end of make cards
     $("div.drag:nth-child(odd)").appendTo("div#wordBank");
@@ -237,9 +213,6 @@ function startTimer(){
     */
 }
 
-function timeisUp() {
-    //Code to be executed when timer expires.
-}
 
 function startClock(){
 
@@ -255,3 +228,4 @@ function startClock(){
         timeUp : timeisUp
     });
 }
+
