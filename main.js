@@ -75,14 +75,32 @@ $('body').on('click', '.newCard', function () {
     //$('.cardReel').append(cardPremade);
     $(cardPremade).insertBefore('.newCard');
 
-   $(this).children("input").focus();
+   //$(this).children("input").focus();
+    $(this).prev( '.card').find("input").focus();
 
-    var cardAmount = $(".card").size();
+    //var cardAmount = $(".card").size();
 
 
     //reinitialize dragging on dynamic cards
     makeItDrag();
 });
+
+//on card unfocus change back to transparent card
+$('body').on('blur', '.card,.newCard', function () {
+    var tempAss = $(this).find("input").val();
+    if(tempAss == "") {
+        $(this).css({
+            'background-color':'#f2f1ed',
+            'border': '1px dotted #c7c3be'
+        })
+        $(this).find("input").css({
+            'background-color':'#f2f1ed'
+        })
+    }
+
+
+});
+
 
 //click controller for category dots
 $('body').on('click','i.dotX',function(){

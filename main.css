@@ -274,10 +274,10 @@ i#redDot{
 }
 i.dotX{
     position:absolute;
-    top:0px;
+    top:-1px;
     left:1px;
-    color:black;
-    opacity:.5;
+    size:11px;
+    color:#7c7975;
     visibility:hidden;
 }
 i.killDot:hover > i.dotX{
