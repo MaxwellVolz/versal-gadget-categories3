@@ -76,6 +76,7 @@ div.cardReel{
     position:relative;
     width:1444px;
     height:120px;
+    margin-left:18px;
 }
 div.categorySection{
     position:relative;
@@ -124,7 +125,9 @@ div.newCard{
     height:94px;
     width:94px;
     margin-left:12px;
-    border: 1px dotted #c7c3be;
+    border: 1px dashed #c7c3be;
+    border-radius: 4px;
+    border-width: 1px;
     background-color: #f2f1ed;
 }
 
@@ -139,9 +142,7 @@ div.card:hover i.killCard{
     visibility: visible;
 }
 
-div.card:first-child{
-    margin-left:30px;
-}
+
 
 div.face > input{
     margin-left:5px;

@@ -126,6 +126,8 @@ function makeItDrag(){
                 //make a log
                 console.log("revert invalid");
 
+
+
                 //send to back of cardReel stack
                 $(this).appendTo(".cardReel");
 
@@ -155,10 +157,32 @@ $(window).bind("load", function () {
 
         //Category 1 stickiness
         $("#category1").droppable({
-            accept: ".draggable",
+            accept: ".card",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
+
+                if(!$(ui.draggable).hasClass("ojDot")){
+                    $(ui.draggable).addClass("ojDot");
+                    $(ui.draggable).find(".catDotContainer").append(ojDotPremade);
+
+                }
+
+                $(ui.draggable).appendTo(".cardReel").css({
+                    "position":"relative",
+                    "float":"left",
+                    "top":"0px",
+                    "left":"0px",
+                    "height":"94px",
+                    "width":"94px",
+                    "margin-left":"12px",
+                    "z-index":"1",
+                    "background-color":"#ffffff",
+                    "border": "1px solid #c7c3be"
+                });
+                $(ui.draggable).find("input").css({
+                    "background-color":"#ffffff"
+                })
                 setTimeout(function () {
                     // Do something after 5 seconds
 
@@ -167,15 +191,33 @@ $(window).bind("load", function () {
         });
 
         //Category 2 stickiness
-        $("#droppable2").droppable({
-            accept: ".cat1",
+        $("#category2").droppable({
+            accept: ".card",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
-                $(this).addClass("pulseGreen2");
-                $(".aboutToDrop").remove();
 
-                pulseDropZone2();
+                if(!$(ui.draggable).hasClass("tealDot")){
+                    $(ui.draggable).addClass("tealDot");
+                    $(ui.draggable).find(".catDotContainer").append(tealDotPremade);
+
+                }
+
+                $(ui.draggable).appendTo(".cardReel").css({
+                    "position":"relative",
+                    "float":"left",
+                    "top":"0px",
+                    "left":"0px",
+                    "height":"94px",
+                    "width":"94px",
+                    "margin-left":"12px",
+                    "z-index":"1",
+                    "background-color":"#ffffff",
+                    "border": "1px solid #c7c3be"
+                });
+                $(ui.draggable).find("input").css({
+                    "background-color":"#ffffff"
+                })
                 setTimeout(function () {
                     // Do something after 5 seconds
 
