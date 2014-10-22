@@ -6,6 +6,10 @@ var timeLeft = 0;
 var player = new VersalPlayerAPI();
 
 player.setPropertySheetAttributes({
+    
+    resetAllowed: { type: 'Checkboxes', 
+		options : ['Reset Allowed'] 
+	},
     timeOption: { type: 'Select',
         options: ['Record', 'Countdown']
     },
@@ -224,16 +228,70 @@ $(window).bind("load", function () {
                 }, 300);
             }
         });
+        
         //Category 3 stickiness
-        $("#droppable3").droppable({
-            accept: ".cat2",
+        $("#category3").droppable({
+            accept: ".card",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
-                $(this).addClass("pulseGreen3");
-                $(".aboutToDrop").remove();
 
-                pulseDropZone3();
+                if(!$(ui.draggable).hasClass("blueDot")){
+                    $(ui.draggable).addClass("blueDot");
+                    $(ui.draggable).find(".catDotContainer").append(blueDotPremade);
+
+                }
+
+                $(ui.draggable).appendTo(".cardReel").css({
+                    "position":"relative",
+                    "float":"left",
+                    "top":"0px",
+                    "left":"0px",
+                    "height":"94px",
+                    "width":"94px",
+                    "margin-left":"12px",
+                    "z-index":"1",
+                    "background-color":"#ffffff",
+                    "border": "1px solid #c7c3be"
+                });
+                $(ui.draggable).find("input").css({
+                    "background-color":"#ffffff"
+                });
+                setTimeout(function () {
+                    // Do something after 5 seconds
+
+                }, 300);
+            }
+        });
+        
+        //Category 4 stickiness
+        $("#category4").droppable({
+            accept: ".card",
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function (event, ui) {
+
+                if(!$(ui.draggable).hasClass("redDot")){
+                    $(ui.draggable).addClass("redDot");
+                    $(ui.draggable).find(".catDotContainer").append(redDotPremade);
+
+                }
+
+                $(ui.draggable).appendTo(".cardReel").css({
+                    "position":"relative",
+                    "float":"left",
+                    "top":"0px",
+                    "left":"0px",
+                    "height":"94px",
+                    "width":"94px",
+                    "margin-left":"12px",
+                    "z-index":"1",
+                    "background-color":"#ffffff",
+                    "border": "1px solid #c7c3be"
+                });
+                $(ui.draggable).find("input").css({
+                    "background-color":"#ffffff"
+                });
                 setTimeout(function () {
                     // Do something after 5 seconds
 
