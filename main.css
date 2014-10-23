@@ -110,6 +110,7 @@ div.rotate180d{
 
 
 
+
 .face {
     position: absolute;
     width: 100%;
@@ -142,7 +143,11 @@ div.card:hover i.killCard{
     visibility: visible;
 }
 
-
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: rgba(229, 103, 23, 0.8);
+    box-shadow: 0 0px 0px 1px #c7c3be;
+    outline: 0 none;
+}
 
 div.face > input{
     margin-left:5px;

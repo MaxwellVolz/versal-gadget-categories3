@@ -6,14 +6,15 @@ var timeLeft = 0;
 var player = new VersalPlayerAPI();
 
 player.setPropertySheetAttributes({
-    
-    resetAllowed: { type: 'Checkboxes', 
-		options : ['Reset Allowed'] 
-	},
-    timeOption: { type: 'Select',
-        options: ['Record', 'Countdown']
-    },
-    timeAllowed:  { type: 'Range', min: 10, max: 300, step: 5 }
+
+    time:  { type: 'Range',
+        min: 10,
+        max: 300,
+        step: 5 },
+
+    enableLearnerReset: { type: 'Checkboxes',
+        options : ['']
+    }
 
 });
 
@@ -59,7 +60,7 @@ $('body').on('click', '.face', function () {
     $(this).children("input").focus();
 });
 
-//premade card
+//premade elements
 var cardPremade = "<div class='draggable card'><div class='face'><div class='catDotContainer'></div><div class='cardCategories'></div><i class='killCard icon-remove icon-1x'></i><input placeholder='new card'></div></div>";
 var ojDotPremade = "<i id='ojDot' class='killDot fa icon-circle'><i class='dotX icon-remove icon-1x'></i></i>";
 var tealDotPremade = "<i id='tealDot' class='killDot fa icon-circle'><i class='dotX icon-remove icon-1x'></i></i>";
@@ -87,6 +88,24 @@ $('body').on('click', '.newCard', function () {
 
     //reinitialize dragging on dynamic cards
     makeItDrag();
+});
+
+//on card focus style white bg and border
+$('body').on('focus', '.card', function () {
+
+    $(this).css({
+        'background-color':'#ffffff',
+        'border': '1px solid #c7c3be',
+
+        'border-color': '#c7c3be'
+
+    })
+    $(this).find("input").css({
+        'background-color':'#ffffff'
+    })
+
+
+
 });
 
 //on card unfocus change back to transparent card
