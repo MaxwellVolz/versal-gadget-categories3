@@ -77,14 +77,18 @@ $('body').on('click', '.killCard', function () {
 //make and focus new card
 $('body').on('click', '.newCard', function () {
 
-    //$('.cardReel').append(cardPremade);
-    $(cardPremade).insertBefore('.newCard');
+    var cardAmount = $('.card').size();
+    console.log(cardAmount);
+    if(cardAmount < 8) {
 
-   //$(this).children("input").focus();
-    $(this).prev( '.card').find("input").focus();
+        //$('.cardReel').append(cardPremade);
+        $(cardPremade).insertBefore('.newCard');
 
-    //var cardAmount = $(".card").size();
+        //$(this).children("input").focus();
+        $(this).prev('.card').find("input").focus();
 
+        //var cardAmount = $(".card").size();
+    }
 
     //reinitialize dragging on dynamic cards
     makeItDrag();

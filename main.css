@@ -35,6 +35,7 @@ div.upperCardSection{
     background-color:#f2f1ed;
     height:207px;
     width:722px;
+    overflow:hidden;
 }
 
 div.scoreboardSection{
@@ -72,9 +73,18 @@ div.timer span{
     font-size:16px;
     color:#7c7975;
 }
-div.cardReel{
+div.cardReelContainer{
     position:relative;
-    width:1444px;
+    width:722px;
+    height:120px;
+    overflow-x: auto;
+    overflow-y:hidden;
+}
+div.cardReel{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:976px;
     height:120px;
     margin-left:18px;
 }
@@ -144,7 +154,6 @@ div.card:hover i.killCard{
 }
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
-    border-color: rgba(229, 103, 23, 0.8);
     box-shadow: 0 0px 0px 1px #c7c3be;
     outline: 0 none;
 }
@@ -160,6 +169,7 @@ div.face > input{
     text-align:center;
     font-size:14px;
 }
+
 div.newCard input{
     margin-left:5px;
     margin-top:35px;
