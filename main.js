@@ -107,9 +107,35 @@ $('body').on('focus', '.card', function () {
     $(this).find("input").css({
         'background-color':'#ffffff'
     })
+});
 
+//on category header focus style input
+$('body').on('focus', '.categoryHeader input', function () {
 
+    $(this).css({
+        'background-color':'#ffffff',
+        'border': '1px solid #c7c3be',
+        'border-color': '#c7c3be'
 
+    });
+    $(this).find("input").css({
+        'background-color':'#ffffff'
+    });
+    $(this).removeClass("placeHolderFix").addClass("placeHolderRevert");
+});
+
+//on category header blur style to color of parent bg
+$('body').on('blur', '.categoryHeader input', function () {
+
+    var headerColor = $(this).parent().css("background-color");
+
+    $(this).css({
+        'background-color':headerColor,
+        'border': '0px solid #c7c3be',
+        'color':'#7c7975',
+        'border-color': '#c7c3be'
+    });
+    $(this).removeClass("placeHolderRevert").addClass("placeHolderFix");
 });
 
 //on card unfocus change back to transparent card
@@ -124,10 +150,24 @@ $('body').on('blur', '.card,.newCard', function () {
             'background-color':'#f2f1ed'
         })
     }
+});
+
+//add category "hider"
+$('body').on('click','.addCat', function(){
+    $(this).css("visibility","hidden");
+    $(this).parent().find("input").val("").focus()
+})
+
+//category kill controller
+$('body').on('click', 'i.catHeadKill', function () {
+
+    var prevInput = $(this).parent().find("input").val("").focus();
+    var prevInputH = $(this).parent().parent().find(".addCat").css("visibility","visible");
+    console.log(prevInputH);
+
 
 
 });
-
 
 //click controller for category dots
 $('body').on('click','i.dotX',function(){
@@ -152,8 +192,6 @@ function makeItDrag(){
 
                 //make a log
                 console.log("revert invalid");
-
-
 
                 //send to back of cardReel stack
                 $(this).appendTo(".cardReel");

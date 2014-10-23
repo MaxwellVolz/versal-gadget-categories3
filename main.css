@@ -20,6 +20,13 @@
     color:    #c7c3be;
 }
 
+.placeHolderFix::-webkit-input-placeholder {
+    color: #7c7975;
+}
+.placeHolderRevert::-webkit-input-placeholder {
+    color:    #c7c3be;
+}
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #fefdf9;
@@ -231,7 +238,9 @@ div.categoryHeader > input{
     height:20px;
     text-align:center;
     font-size:16px;
-    color:#c7c3be;
+    color:#7c7975;
+    line-height:24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 div.categoryHeader > i{
@@ -244,14 +253,17 @@ div.categoryHeader > i{
     color:#7c7975;
     visibility:hidden;
 }
-div.categoryHeader > h2{
+div.addCat > h2{
     position:absolute;
     width:159px;
     margin:0px;
     font-size:16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight:normal;
     line-height:20px;
-    bottom:4px;
+    top:80px;
     text-align:center;
+    color:#c7c3be;
 }
 
 div.categories:hover i{
@@ -300,7 +312,19 @@ i.killDot:hover > i.dotX{
     visibility:visible;
 }
 
-
+div.addCat{
+    position:absolute;
+    left:0px;
+    top:0px;
+    height:175px;
+    width:159px;
+    border: 1px dashed #c7c3be;
+    border-radius: 4px;
+    border-width: 1px;
+    background-color: #ffffff;
+    z-index:100;
+    visibility: visible;
+}
 
 
 
